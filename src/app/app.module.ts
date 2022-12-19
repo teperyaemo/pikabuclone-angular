@@ -1,4 +1,4 @@
-import { HttpClient, HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { isDevMode, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { EffectsModule } from '@ngrx/effects';
@@ -8,7 +8,8 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AuthModule } from './auth/auth.module';
-import { TopBarModule } from './shared/modules/topbar/topbar.module';
+import { GlobalFeedModule } from './globalFeed/globalFeed.module';
+import { TopBarModule } from './shared/modules/topbar/topBar.module';
 import { AuthInterceptor } from './shared/services/authInterceptor.service';
 import { PersistanceService } from './shared/services/persistance.srevice';
 
@@ -30,7 +31,8 @@ import { PersistanceService } from './shared/services/persistance.srevice';
       trace: false, //  If set to true, will include stack trace for every dispatched action, so you can see it in trace tab jumping directly to that part of code
       traceLimit: 75, // maximum stack trace frames to be stored (in case trace option was provided as true)
     }),
-    TopBarModule
+    TopBarModule,
+    GlobalFeedModule
   ],
   providers: [
     PersistanceService,

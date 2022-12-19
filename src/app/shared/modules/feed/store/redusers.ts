@@ -1,0 +1,33 @@
+import { Action, createReducer, on } from "@ngrx/store";
+import { FeedStateInterface } from "../types/feedState.interface";
+import { getFeedAction, getFeedFilureAction, getFeedSuccessAction } from "./actions/getFeed.action";
+
+const initialState : FeedStateInterface = {
+    isLoading: false, 
+    error: null, 
+    data: null
+}
+
+const feedReduces = createReducer(
+    initialState,
+    on(getFeedAction,
+        (state): FeedStateInterface =>({
+        ...state,
+        isLoading: true
+    })),
+    on(getFeedSuccessAction,
+        (state, action): FeedStateInterface =>({
+        ...state,
+        isLoading: false,
+        data: action.feed
+    })),
+    on(getFeedFilureAction,
+        (state, action): FeedStateInterface =>({
+        ...state,
+        isLoading: false
+    })),
+)
+
+export function reducers(state: FeedStateInterface, action: Action){
+    return feedReduces(state, action)
+}
