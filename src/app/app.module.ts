@@ -8,6 +8,7 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AuthModule } from './auth/auth.module';
+import { TopBarModule } from './shared/modules/topbar/topbar.module';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { AuthModule } from './auth/auth.module';
       trace: false, //  If set to true, will include stack trace for every dispatched action, so you can see it in trace tab jumping directly to that part of code
       traceLimit: 75, // maximum stack trace frames to be stored (in case trace option was provided as true)
     }),
+    TopBarModule
   ],
   providers: [],
   bootstrap: [AppComponent]

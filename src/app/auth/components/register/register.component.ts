@@ -1,5 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-import{FormGroup, FormBuilder, Validators} from "@angular/forms"
+import { FormGroup, FormBuilder } from "@angular/forms"
 import { select, Store } from "@ngrx/store";
 import { Observable } from "rxjs";
 
@@ -15,8 +15,8 @@ import { RegisterRequestInterface } from "../../types/registerRequest.interface"
     styleUrls: ['./register.component.scss']
 })
 export class RegisterComponent implements OnInit{
-    form!: FormGroup
-    isSubmitting$!: Observable<boolean>
+    form: FormGroup;
+    isSubmitting$: Observable<boolean>
     backendErrors$!: Observable<BackendErrorsInterface | null> 
 
     constructor(private fb: FormBuilder, private store: Store, private authService: AuthService){}
